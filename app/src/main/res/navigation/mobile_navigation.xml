@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_adverts">
+
+    <fragment
+        android:id="@+id/navigation_chats"
+        android:name="com.example.swopper.ui.chats.BasicFragment"
+        android:label="Сообщения"
+        tools:layout="@layout/fragment_chats_basic" >
+        <action
+            android:id="@+id/action_navigation_chats_to_chatsFragment"
+            app:destination="@id/chatsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_adverts"
+        android:name="com.example.swopper.ui.adverts.BasicFragment"
+        android:label="Объявления"
+        tools:layout="@layout/fragment_adverts_basic" >
+        <action
+            android:id="@+id/action_navigation_adverts_to_advertsFragment"
+            app:destination="@id/advertsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/advertsFragment"
+        android:name="com.example.swopper.ui.adverts.AdvertsFragment"
+        android:label="Объявления"
+        tools:layout="@layout/fragment_adverts">
+        <action
+            android:id="@+id/action_advertsFragment_to_advertFragment"
+            app:destination="@id/advertFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/advertFragment"
+        android:name="com.example.swopper.ui.adverts.AdvertFragment"
+        tools:layout="@layout/fragment_advert">
+        <action
+            android:id="@+id/action_advertFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.swopper.ui.chat.ChatFragment"
+        tools:layout="@layout/fragment_chat" />
+
+    <fragment
+        android:id="@+id/navigation_add_advert"
+        android:name="com.example.swopper.ui.add_advert.BasicFragment"
+        android:label="Добавить новое объявление"
+        tools:layout="@layout/fragment_add_advert_basic" >
+        <action
+            android:id="@+id/action_navigation_add_advert_to_addMainInformationFragment"
+            app:destination="@id/addMainInformationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMainInformationFragment"
+        android:name="com.example.swopper.ui.add_advert.AddMainInformationFragment"
+        android:label="Добавить новое объявление"
+        tools:layout="@layout/fragment_add_main_information" >
+        <action
+            android:id="@+id/action_addMainInformationFragment_to_addAdditionalInformationFragment"
+            app:destination="@id/addAdditionalInformationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addAdditionalInformationFragment"
+        android:name="com.example.swopper.ui.add_advert.AddAdditionalInformationFragment"
+        android:label="Добавить новое объявление"
+        tools:layout="@layout/fragment_add_additional_information" >
+        <action
+            android:id="@+id/action_addAdditionalInformationFragment_to_addImageFragment"
+            app:destination="@id/addImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addImageFragment"
+        android:name="com.example.swopper.ui.add_advert.AddImageFragment"
+        android:label="Добавить новое объявление"
+        tools:layout="@layout/fragment_add_image" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.swopper.ui.profile.BasicFragment"
+        android:label="Профиль"
+        tools:layout="@layout/fragment_profile_basic" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.swopper.ui.settings.SettingsFragment"
+        android:label="Настройки"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/chatsFragment"
+        android:name="com.example.swopper.ui.chats.ChatsFragment"
+        android:label="fragment_chats"
+        tools:layout="@layout/fragment_chats" >
+        <action
+            android:id="@+id/action_chatsFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+</navigation>

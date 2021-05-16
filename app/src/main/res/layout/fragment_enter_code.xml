@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.registration.EnterCodeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/enter_code_brand_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/app_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+        <ImageView
+            android:id="@+id/enter_code_brand_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_recycle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/app_half_margin"
+            android:textSize="@dimen/large_text"
+            android:textColor="@color/colorMainText"
+            android:textStyle="bold"
+            android:text="@string/app_name"
+            app:layout_constraintStart_toEndOf="@id/enter_code_brand_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/enter_code_brand_container"
+        app:layout_constraintBottom_toTopOf="@id/enter_code_bottom_label">
+        <TextView
+            android:id="@+id/enter_code_input_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/large_text"
+            android:textColor="@color/colorMainText"
+            android:textStyle="bold"
+            android:text="@string/enter_code_input_label_text"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+        <TextView
+            android:id="@+id/enter_code_hint_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_half_margin"
+            android:textSize="@dimen/small_text"
+            android:textColor="@color/colorSecondText"
+            android:minLines="2"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/enter_code_input_label"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+        <EditText
+            android:id="@+id/enter_code"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/app_margin"
+            android:layout_marginStart="@dimen/app_margin"
+            android:layout_marginEnd="@dimen/app_margin"
+            android:inputType="numberPassword"
+            android:maxLines="1"
+            android:maxLength="6"
+            android:gravity="center"
+            android:background="@drawable/background_edit_field"
+            android:textColor="@color/colorMainText"
+            android:textColorHint="@color/colorMainText"
+            android:textSize="@dimen/normal_text"
+            android:hint="@string/enter_code_hint"
+            app:layout_constraintTop_toBottomOf="@id/enter_code_hint_label"
+            android:autofillHints="" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/enter_code_bottom_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="?android:attr/actionBarSize"
+        android:paddingStart="@dimen/text_padding"
+        android:paddingEnd="@dimen/text_padding"
+        android:textSize="@dimen/small_text"
+        android:textColor="@color/colorSecondText"
+        android:text="Если у Вас возникли проблемы с получением кода, то задайте необходимые разрешения и попробуйте снова"
+        android:gravity="center"
+        android:singleLine="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

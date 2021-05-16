@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="?attr/actionBarSize"
+    android:layout_marginBottom="?attr/actionBarSize"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.add_advert.AddMainInformationFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/add_main_information_next_button">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/add_type_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/app_margin"
+            android:layout_marginEnd="@dimen/app_margin"
+            app:layout_constraintTop_toTopOf="parent">
+            <RadioGroup
+                android:id="@+id/add_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/app_margin"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+                <RadioButton android:id="@+id/type_give"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Отдам даром"
+                    android:textColor="@color/colorMainText"
+                    android:textSize="@dimen/normal_text"/>
+                <RadioButton android:id="@+id/type_accept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Приму в дар"
+                    android:textColor="@color/colorMainText"
+                    android:textSize="@dimen/normal_text"/>
+                <RadioButton android:id="@+id/type_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Обменяю"
+                    android:textColor="@color/colorMainText"
+                    android:textSize="@dimen/normal_text"/>
+            </RadioGroup>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/add_name_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_double_margin"
+            android:layout_marginStart="@dimen/app_margin"
+            android:layout_marginEnd="@dimen/app_margin"
+            app:layout_constraintTop_toBottomOf="@id/add_type_container">
+            <TextView
+                android:id="@+id/add_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/normal_text"
+                android:textColor="@color/colorMainText"
+                android:text="Что публикуем?"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+            <EditText
+                android:id="@+id/add_name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/app_half_margin"
+                android:inputType="text"
+                android:maxLines="1"
+                android:maxLength="32"
+                android:background="@drawable/background_edit_field"
+                android:textColor="@color/colorMainText"
+                android:textColorHint="@color/colorSecondText"
+                android:textSize="@dimen/normal_text"
+                android:hint="Чехол на iPhone 8plus с монстрами"
+                app:layout_constraintTop_toBottomOf="@id/add_name_label"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/add_location_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_double_margin"
+            android:layout_marginStart="@dimen/app_margin"
+            android:layout_marginEnd="@dimen/app_margin"
+            app:layout_constraintTop_toBottomOf="@id/add_name_container">
+            <TextView
+                android:id="@+id/add_location_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/normal_text"
+                android:textColor="@color/colorMainText"
+                android:text="Где Вам удобно принять или отдать это?"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+            <Spinner
+                android:id="@+id/add_location"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/app_half_margin"
+                android:spinnerMode="dropdown"
+                android:background="@drawable/background_edit_field"
+                app:layout_constraintTop_toBottomOf="@id/add_location_label"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/add_main_information_next_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/app_margin"
+        android:layout_marginStart="@dimen/app_margin"
+        android:layout_marginEnd="@dimen/app_margin"
+        android:backgroundTint="@color/colorButton"
+        android:textColor="@color/colorPrimary"
+        android:radius="10dp"
+        android:textAllCaps="false"
+        android:text="@string/next_button_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

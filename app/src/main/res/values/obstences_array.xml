@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="obstences">
+        <item>ебать</item>
+        <item>заебать</item>
+        <item>выебать</item>
+        <item>поебать</item>
+        <item>проебать</item>
+        <item>ебнуть</item>
+        <item>ебаный</item>
+        <item>ебло</item>
+        <item>ебальник</item>
+        <item>отъебись</item>
+        <item>заебись</item>
+        <item>поебень</item>
+        <item>хуй</item>
+        <item>похуй</item>
+        <item>нахуй</item>
+        <item>схуяли</item>
+        <item>охуеть</item>
+        <item>охуительный</item>
+        <item>охуенный</item>
+        <item>хуево</item>
+        <item>хуевый</item>
+        <item>хуйня</item>
+        <item>хер</item>
+        <item>похер</item>
+        <item>нахер</item>
+        <item>схерли</item>
+        <item>охереть</item>
+        <item>охерительный</item>
+        <item>охеренный</item>
+        <item>херово</item>
+        <item>херовый</item>
+        <item>херня</item>
+        <item>пизда</item>
+        <item>пиздец</item>
+        <item>пиздеть</item>
+        <item>отпиздить</item>
+        <item>распиздяй</item>
+        <item>пиздатый</item>
+        <item>пиздюк</item>
+        <item>пиздюлина</item>
+        <item>педик</item>
+        <item>пидорас</item>
+        <item>пидор</item>
+        <item>сука</item>
+        <item>блять</item>
+        <item>ублюдок</item>
+        <item>уебище</item>
+        <item>залупа</item>
+        <item>гандон</item>
+        <item>жопа</item>
+        <item>манда</item>
+    </string-array>
+</resources>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="?attr/actionBarSize"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.chat.ChatFragment">
+
+    <View
+        android:id="@+id/separator1"
+        style="@style/separator"
+        android:layout_marginTop="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chat_toolbar_advert"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="1dp"
+        app:layout_constraintTop_toBottomOf="@id/separator1">
+        <TextView
+            android:id="@+id/chat_toolbar_advert_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/app_margin"
+            android:textColor="@color/colorMainText"
+            android:textSize="@dimen/big_text"
+            android:textStyle="bold"
+            tools:text="Пенка для волос"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <com.github.siyamed.shapeimageview.RoundedImageView
+            android:id="@+id/chat_toolbar_advert_image"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/im_default_advert"
+            app:siRadius="10dp"
+            app:siBorderWidth="0dp"
+            app:siSquare="true"
+            android:layout_marginEnd="@dimen/app_margin"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/separator2"
+        style="@style/separator"
+        android:layout_marginTop="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chat_toolbar_advert" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/chat_swipe_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintTop_toTopOf="@id/separator2"
+        app:layout_constraintBottom_toTopOf="@id/chat_enter_message"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/messages_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <EditText
+        android:id="@+id/chat_enter_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorEnterMessage"
+        android:padding="12dp"
+        android:textColor="@color/colorMainText"
+        android:textSize="@dimen/normal_text"
+        android:textColorHint="@color/colorSecondText"
+        android:hint="Сообщение"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/chat_send_message"/>
+
+    <ImageView
+        android:id="@+id/chat_send_message"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:padding="@dimen/text_padding"
+        android:src="@drawable/ic_send"
+        android:background="@color/colorEnterMessage"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/chat_enter_message"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/chat_attach_image"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:padding="@dimen/text_padding"
+        android:src="@drawable/ic_attach"
+        android:background="@color/colorEnterMessage"
+        app:layout_constraintTop_toTopOf="@+id/chat_enter_message"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

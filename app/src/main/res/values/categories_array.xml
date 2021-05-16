@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categories">
+        <item>Мужской гардероб</item>
+        <item>Женский гардероб</item>
+        <item>Детский гардероб</item>
+        <item>Электроника</item>
+        <item>Автотовары</item>
+        <item>Для дома и дачи</item>
+        <item>Спорт</item>
+        <item>Хобби и развлечения</item>
+        <item>Красота и здоровье</item>
+        <item>Детские товары</item>
+        <item>Продукты питания</item>
+        <item>Животные</item>
+        <item>Услуги</item>
+        <item>Другое</item>
+    </string-array>
+</resources>

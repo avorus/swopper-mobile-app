@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/app_tiny_margin"
+    android:layout_marginEnd="@dimen/app_tiny_margin"
+    android:background="@color/colorPrimary">
+
+    <View
+        android:id="@+id/chat_separator"
+        style="@style/separator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.github.siyamed.shapeimageview.RoundedImageView
+        android:id="@+id/item_chat_advert_image"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="@dimen/app_margin"
+        android:layout_marginTop="@dimen/app_small_margin"
+        android:src="@drawable/im_default_advert"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chat_separator"
+        app:siBorderWidth="0dp"
+        app:siRadius="10dp"
+        app:siSquare="true" />
+
+    <TextView
+        android:id="@+id/item_chat_user_username"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/app_margin"
+        android:layout_marginTop="@dimen/app_tiny_margin"
+        android:textColor="@color/colorMainText"
+        android:textSize="@dimen/normal_text"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/item_chat_advert_image"
+        app:layout_constraintTop_toBottomOf="@id/chat_separator"
+        tools:text="@string/profile_default_username" />
+
+    <TextView
+        android:id="@+id/item_chat_advert_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/app_margin"
+        android:textColor="@color/colorMainText"
+        android:textSize="@dimen/normal_text"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/item_chat_advert_image"
+        app:layout_constraintTop_toBottomOf="@id/item_chat_user_username"
+        tools:text="Пенка для волос" />
+
+    <TextView
+        android:id="@+id/item_chat_last_message_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/app_margin"
+        android:textColor="@color/grey400"
+        android:textSize="@dimen/normal_text"
+        app:layout_constraintStart_toEndOf="@id/item_chat_advert_image"
+        app:layout_constraintTop_toBottomOf="@id/item_chat_advert_name"
+        tools:text="Да, актуально" />
+
+    <TextView
+        android:id="@+id/item_chat_last_message_data"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/app_margin"
+        android:layout_marginTop="@dimen/app_tiny_margin"
+        android:textColor="@color/colorSecondText"
+        android:textSize="@dimen/small_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chat_separator"
+        tools:text="18.09.2017" />
+</androidx.constraintlayout.widget.ConstraintLayout>

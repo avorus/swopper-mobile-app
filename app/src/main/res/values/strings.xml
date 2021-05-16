@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">swopper</string>
+
+    <string name="title_adverts">Объявления</string>
+    <string name="title_profile">Профиль</string>
+    <string name="title_add_advert">Добавить</string>
+    <string name="title_chats">Сообщения</string>
+    <string name="title_settings">Настройки</string>
+
+    <string name="profile_default_username">sonik power</string>
+    <string name="profile_default_status">в сети</string>
+    <string name="profile_default_phone">+79686398696</string>
+    <string name="profile_user_phone_label_text">Номер телефона</string>
+    <string name="profile_default_location">город Москва</string>
+    <string name="profile_user_location_label_text">Местоположение</string>
+    <string name="profile_default_registrated_text">На Swopper с </string>
+    <string name="profile_default_registrated">25.04.2021</string>
+    <string name="profile_user_registrated_label_text">Дата регистрации</string>
+    <string name="profile_menu_edit_username_text">Изменить имя</string>
+    <string name="profile_menu_edit_user_photo_text">Изменить фото профиля</string>
+    <string name="profile_menu_edit_user_location_text">Изменить местоположение</string>
+    <string name="profile_menu_settings_text">Настройки</string>
+    <string name="profile_menu_exit_text">Выйти из приложения</string>
+
+    <string name="next_button_text">Далее</string>
+    <string name="enter_phone_input_label_text">Введите номер</string>
+    <string name="enter_empty_phone_toast">Введите номер</string>
+    <string name="enter_code_input_label_text">Введите код</string>
+    <string name="enter_code_hint_label_text">Мы отправили SMS с кодом проверки на Ваш телефон %s</string>
+    <string name="enter_code_hint">— — — — — —</string>
+    <string name="enter_wrong_code_toast">Неверный код. Поробуйте снова</string>
+    <string name="enter_username_input_label_text">Придумайте имя</string>
+    <string name="enter_username_hint">Имя профиля</string>
+    <string name="enter_empty_username_toast">Имя не может быть пустым</string>
+    <string name="enter_obscene_username_toast">Имя не может содержать ненормативную лексику</string>
+
+    <string name="settings_main_information_label_text">Основная информация</string>
+    <string name="settings_change_username_label_text">Имя профиля</string>
+    <string name="settings_change_location_label_text">Местоположение</string>
+    <string name="settings_privacy_label_text">Настройки приватности</string>
+    <string name="settings_exit_text">Выйти</string>
+    <string name="changes_updated_toast">Изменения сохранены</string>
+
+    <string name="enter_empty_name_toast">Название не может быть пустым</string>
+    <string name="enter_obscene_name_toast">Название не может содержать ненормативную лексику</string>
+    <string name="enter_empty_description_toast">Описание не может быть пустым</string>
+    <string name="enter_obscene_description_toast">Описание не может содержать ненормативную лексику</string>
+</resources>

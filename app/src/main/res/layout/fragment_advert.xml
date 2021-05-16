@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="?attr/actionBarSize"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:layout_marginStart="@dimen/app_margin"
+    android:layout_marginEnd="@dimen/app_margin"
+    android:layout_marginBottom="@dimen/app_margin"
+    tools:context="ui.adverts.AdvertFragment">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary">
+    <ImageView
+        android:id="@+id/advert_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/im_default_advert"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/advert_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/app_margin"
+        android:layout_marginTop="@dimen/app_half_margin"
+        android:layout_marginEnd="@dimen/app_margin"
+        android:gravity="start|top"
+        android:textColor="@color/colorMainText"
+        android:textSize="@dimen/normal_text"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/advert_image"
+        tools:text="Пена для волос" />
+
+    <TextView
+        android:id="@+id/advert_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/app_margin"
+        android:layout_marginTop="@dimen/app_tiny_margin"
+        android:layout_marginEnd="@dimen/app_margin"
+        android:gravity="start|top"
+        android:textColor="@color/colorSecondaryLight"
+        android:textSize="@dimen/normal_text"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/advert_name"
+        tools:text="Отдам даром" />
+
+    <View
+        android:id="@+id/separator1"
+        style="@style/separator"
+        android:layout_marginTop="@dimen/app_half_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/advert_type" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/advert_location_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/app_tiny_margin"
+        app:layout_constraintTop_toBottomOf="@id/separator1">
+
+        <TextView
+            android:id="@+id/advert_location_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/app_margin"
+            android:layout_marginEnd="@dimen/app_margin"
+            android:text="Местоположение"
+            android:textColor="@color/colorSecondText"
+            android:textSize="@dimen/normal_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/advert_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/app_margin"
+            android:layout_marginEnd="@dimen/app_margin"
+            tools:text="Артем"
+            android:textColor="@color/colorMainText"
+            android:textSize="@dimen/normal_text"
+            app:layout_constraintStart_toEndOf="@id/advert_location_label"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/advert_category_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/app_tiny_margin"
+        app:layout_constraintTop_toBottomOf="@id/advert_location_container">
+
+        <TextView
+            android:id="@+id/advert_category_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/app_margin"
+            android:layout_marginEnd="@dimen/app_margin"
+            android:text="Категория"
+            android:textColor="@color/colorSecondText"
+            android:textSize="@dimen/normal_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/advert_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginEnd="@dimen/app_margin"
+            tools:text="Мужской гардероб"
+            android:textColor="@color/colorMainText"
+            android:textSize="@dimen/normal_text"
+            app:layout_constraintStart_toEndOf="@id/advert_category_label"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/advert_posted_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/app_tiny_margin"
+        app:layout_constraintTop_toBottomOf="@id/advert_category_container">
+
+        <TextView
+            android:id="@+id/advert_posted_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/app_margin"
+            android:layout_marginEnd="@dimen/app_margin"
+            android:text="Размещено"
+            android:textColor="@color/colorSecondText"
+            android:textSize="@dimen/normal_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/advert_posted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="61dp"
+            android:layout_marginEnd="@dimen/app_margin"
+            tools:text="7 мая 22:56"
+            android:textColor="@color/colorMainText"
+            android:textSize="@dimen/normal_text"
+            app:layout_constraintStart_toEndOf="@id/advert_posted_label"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/separator2"
+        style="@style/separator"
+        android:layout_marginTop="@dimen/app_half_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/advert_posted_container" />
+
+    <TextView
+        android:id="@+id/advert_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/app_half_margin"
+        android:layout_marginStart="@dimen/app_margin"
+        android:layout_marginEnd="@dimen/app_margin"
+        android:gravity="start|top"
+        tools:text="Отличная пена для жирных волос и не только. Девушки, берите"
+        android:textColor="@color/colorMainText"
+        android:textSize="@dimen/normal_text"
+        app:layout_constraintTop_toBottomOf="@id/separator2"/>
+
+    <View
+        android:id="@+id/separator3"
+        style="@style/separator"
+        android:layout_marginTop="@dimen/app_half_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/advert_description" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/advert_owner_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/app_tiny_margin"
+        app:layout_constraintTop_toBottomOf="@id/separator3">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/advert_owner_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="@dimen/app_margin"
+            android:src="@drawable/im_default_user"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/colorPrimary"
+            app:civ_circle_background_color="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/advert_owner_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/app_margin"
+            android:layout_marginTop="3dp"
+            android:textColor="@color/colorMainText"
+            tools:text="sonik power"
+            android:textSize="@dimen/big_text"
+            app:layout_constraintStart_toEndOf="@id/advert_owner_image"
+            app:layout_constraintTop_toTopOf="@id/advert_owner_image" />
+        <TextView
+            android:id="@+id/advert_owner_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/app_margin"
+            tools:text="в сети"
+            android:textColor="@color/colorMainText"
+            android:textSize="@dimen/small_text"
+            app:layout_constraintStart_toEndOf="@id/advert_owner_image"
+            app:layout_constraintTop_toBottomOf="@id/advert_owner_username" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/app_tiny_margin"
+        app:layout_constraintTop_toBottomOf="@id/advert_owner_container">
+        <Button
+            android:id="@+id/advert_call_owner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/app_margin"
+            android:layout_marginEnd="@dimen/app_margin"
+            android:backgroundTint="@color/colorButton"
+            android:textColor="@color/colorPrimary"
+            android:radius="10dp"
+            android:textAllCaps="false"
+            android:text="Позвонить"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <Button
+            android:id="@+id/advert_chat_owner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/app_margin"
+            android:layout_marginEnd="@dimen/app_margin"
+            android:backgroundTint="@color/colorButton"
+            android:textColor="@color/colorPrimary"
+            android:radius="10dp"
+            android:textAllCaps="false"
+            android:text="Написать"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

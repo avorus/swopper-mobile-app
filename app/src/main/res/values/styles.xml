@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="separator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/colorSecondText</item>
+    </style>
+
+    <style name="optionsMenu" parent="Theme.MaterialComponents.DayNight">
+        <item name="backgroundColor">@color/colorPrimary</item>
+        <item name="actionMenuTextColor">@color/colorMainText</item>
+    </style>
+
+    <style name="toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="searchBar" parent="MaterialSearchBarLight">
+        <item name="mt_searchBarColor">#373839</item>
+        <item name="mt_dividerColor">@color/colorPrimary</item>
+        <item name="mt_navIconTint">@color/grey400</item>
+        <item name="mt_searchIconTint">@color/grey400</item>
+        <item name="mt_clearIconTint">@color/grey400</item>
+        <item name="mt_menuIconTint">@color/grey400</item>
+        <item name="mt_backIconTint">@color/grey400</item>
+        <item name="android:textSize">@dimen/normal_text</item>
+        <item name="mt_textCursorTint">@color/colorSecondary</item>
+        <item name="mt_textColor">@color/colorMainText</item>
+        <item name="mt_hintColor">@color/colorMainText</item>
+        <item name="mt_placeholderColor">#373839</item>
+        <item name="mt_highlightedTextColor">@color/colorSecondary</item>
+    </style>
+
+    <style name="filterDialog" parent="Theme.MaterialComponents.DayNight.Dialog">
+        <item name="android:layout_width">400dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+</resources>
