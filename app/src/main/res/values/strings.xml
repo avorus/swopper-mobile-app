@@ -45,4 +45,9 @@
     <string name="enter_obscene_name_toast">Название не может содержать ненормативную лексику</string>
     <string name="enter_empty_description_toast">Описание не может быть пустым</string>
     <string name="enter_obscene_description_toast">Описание не может содержать ненормативную лексику</string>
+
+    <string name="confirm_archive_title">Архивировать объявление?</string>
+    <string name="confirm_archive_message">Оно будет недоступно другим пользователям, но его всегда можно восстановить</string>
+    <string name="confirm_delete_title">Удалить объявление навсегда?</string>
+    <string name="confirm_delete_message">Для возможности восстановления лучше воспользуйтесь архивацией</string>
 </resources>

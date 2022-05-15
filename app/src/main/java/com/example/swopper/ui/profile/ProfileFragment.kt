@@ -11,6 +11,7 @@ import com.example.swopper.R
 import com.example.swopper.database.*
 import com.example.swopper.models.AdvertModel
 import com.example.swopper.ui.adverts.AdvertFragment
+import com.example.swopper.ui.profile.AdvertsAdapter
 import com.example.swopper.utils.*
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -23,8 +24,9 @@ import kotlinx.android.synthetic.main.item_advert.view.*
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private lateinit var mRecyclerView: RecyclerView
-    private lateinit var mAdapter: FirebaseRecyclerAdapter<AdvertModel, AdvertHolder>
-    private lateinit var mRefAdverts: DatabaseReference
+    private lateinit var mAdapter: AdvertsAdapter
+    private lateinit var mAdvertsListener: AppValueEventListener
+    private var mAdverts = mutableListOf<AdvertModel>()
 
     override fun onStart() {
         super.onStart()
@@ -46,52 +48,25 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         initProfile()
     }
 
-    override fun onPause() {
-        super.onPause()
-        mAdapter.stopListening()
-    }
-
-    class AdvertHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val photo: ImageView = view.adverts_image
-        val name: TextView = view.adverts_name
-        val type: TextView = view.adverts_type
-        val location: TextView = view.adverts_location
-        val posted: TextView = view.adverts_posted
-    }
-
     private fun initRecyclerView() {
         mRecyclerView = profile_adverts_recycler_view
-        mRefAdverts = REF_DATABASE_ROOT.child(NODE_ADVERTS)
+        mAdapter = AdvertsAdapter()
 
-        val options = FirebaseRecyclerOptions.Builder<AdvertModel>()
-            .setQuery(mRefAdverts.orderByChild("owner").equalTo(CURRENT_UID), AdvertModel::class.java)
-            .build()
-
-        mAdapter = object : FirebaseRecyclerAdapter<AdvertModel, AdvertHolder>(options) {
-            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdvertHolder {
-                val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_advert, parent, false)
-                return AdvertHolder(view)
-            }
-
-            override fun onBindViewHolder(
-                holder: AdvertHolder,
-                position: Int,
-                advert: AdvertModel
-            ) {
-                holder.photo.setImage(advert.photoUrl, R.drawable.im_default_advert)
-                holder.name.text = advert.name
-                holder.type.text = advert.type
-                holder.location.text = advert.location
-                holder.posted.text = advert.posted.toString().asDateTime()
-
-                holder.itemView.setOnClickListener {
-                    replaceFragment(AdvertFragment(advert), R.id.profileFrameLayout)
-                }
-            }
+        mAdvertsListener = AppValueEventListener { dataSnapshot ->
+            val adverts =
+                dataSnapshot.children.map { it.getValue(AdvertModel::class.java) ?: AdvertModel() }
+            mAdverts.clear()
+            adverts.forEach { advert ->
+                if (advert.owner == CURRENT_UID && advert.status != AdvertStatus.DELETED.status) {
+                    mAdverts.add(advert)
+                } }
+            mAdverts.sortByDescending { advert -> advert.posted.toString().toLong() }
+            mAdapter.setList(mAdverts)
         }
+
+        REF_DATABASE_ROOT.child(NODE_ADVERTS).addValueEventListener(mAdvertsListener)
+
         mRecyclerView.adapter = mAdapter
-        mAdapter.startListening()
     }
 
     private fun initProfile() {

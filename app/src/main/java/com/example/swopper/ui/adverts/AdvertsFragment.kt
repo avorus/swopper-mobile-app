@@ -55,7 +55,10 @@ class AdvertsFragment : Fragment(R.layout.fragment_adverts) {
             val adverts =
                 dataSnapshot.children.map { it.getValue(AdvertModel::class.java) ?: AdvertModel() }
             mAdverts.clear()
-            adverts.forEach { advert -> if (advert.owner != CURRENT_UID) mAdverts.add(advert) }
+            adverts.forEach { advert ->
+                if (advert.owner != CURRENT_UID && advert.status == AdvertStatus.ACTIVE.status) {
+                    mAdverts.add(advert)
+                } }
             mAdverts.sortByDescending { advert -> advert.posted.toString().toLong() }
             mAdapter.setList(mAdverts)
         }
@@ -96,7 +99,8 @@ class AdvertsFragment : Fragment(R.layout.fragment_adverts) {
             mAdverts.clear()
             adverts.forEach { advert ->
                 if (advert.owner != CURRENT_UID
-                    &&(mQueryFilter == "" || search(advert.name, mQueryFilter))
+                    && advert.status == AdvertStatus.ACTIVE.status
+                    && (mQueryFilter == "" || search(advert.name, mQueryFilter))
                     && (mCategoryFilter == "Не важно" || advert.category == mCategoryFilter)
                     && (mTypeFilter == "Не важно" || advert.type == mTypeFilter)
                     && (mLocationFilter == "Не важно" || advert.location == mLocationFilter)

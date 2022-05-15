@@ -9,7 +9,9 @@ data class AdvertModel(
     var photoUrl: String = "empty",
     var location: String = "",
     val posted: Any = "",
-    val owner: String = ""
+    val owner: String = "",
+    var status: String = "active",
+    var archived: Any = ""
 ) {
     override fun equals(other: Any?): Boolean {
         return (other as AdvertModel).id == id

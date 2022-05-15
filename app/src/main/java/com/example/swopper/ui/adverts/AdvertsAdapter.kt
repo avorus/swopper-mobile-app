@@ -20,7 +20,7 @@ class AdvertsAdapter: RecyclerView.Adapter<AdvertsAdapter.AdvertsHolder>() {
         val itemAdvertName: TextView = view.adverts_name
         val itemAdvertType: TextView = view.adverts_type
         val itemAdvertLocation: TextView = view.adverts_location
-        val itemAdvertPosted: TextView = view.adverts_posted
+        val itemAdvertTimestamp: TextView = view.adverts_timestamp
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdvertsHolder {
@@ -39,7 +39,7 @@ class AdvertsAdapter: RecyclerView.Adapter<AdvertsAdapter.AdvertsHolder>() {
         holder.itemAdvertName.text = adverts[position].name
         holder.itemAdvertType.text = adverts[position].type
         holder.itemAdvertLocation.text = adverts[position].location
-        holder.itemAdvertPosted.text = adverts[position].posted.toString().asDateTime()
+        holder.itemAdvertTimestamp.text = adverts[position].posted.toString().asDateTime()
     }
 
     fun setList(list: List<AdvertModel>) {

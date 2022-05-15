@@ -259,6 +259,48 @@
             android:textAllCaps="false"
             android:text="Написать"
             app:layout_constraintTop_toTopOf="parent"/>
+        <Button
+            android:id="@+id/advert_archive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/app_margin"
+            android:layout_marginEnd="@dimen/app_margin"
+            android:backgroundTint="@color/colorButton"
+            android:textColor="@color/colorPrimary"
+            android:radius="10dp"
+            android:textAllCaps="false"
+            android:text="Архивировать"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <Button
+            android:id="@+id/advert_dearchive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/app_margin"
+            android:layout_marginEnd="@dimen/app_margin"
+            android:backgroundTint="@color/colorButton"
+            android:textColor="@color/colorPrimary"
+            android:radius="10dp"
+            android:textAllCaps="false"
+            android:text="Восстановить"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <Button
+            android:id="@+id/advert_delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/app_margin"
+            android:layout_marginEnd="@dimen/app_margin"
+            android:backgroundTint="@color/colorButton"
+            android:textColor="@color/colorDeleteButton"
+            android:radius="10dp"
+            android:textAllCaps="false"
+            android:text="Удалить"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

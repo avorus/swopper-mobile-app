@@ -43,6 +43,8 @@ const val CHILD_CATEGORY = "category"
 // const val CHILD_LOCATION = "location"
 const val CHILD_POSTED = "posted"
 const val CHILD_OWNER = "owner"
+// const val CHILD_STATUS = "status"
+const val CHILD_ARCHIVED = "archived"
 
 // const val CHILD_ID = "id"
 const val CHILD_TEXT = "text"

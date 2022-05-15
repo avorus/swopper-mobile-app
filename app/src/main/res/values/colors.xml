@@ -21,6 +21,7 @@
     <color name="colorSecondaryDark">#007D00</color>
 
     <color name="colorCancelButton">#DD1E1E</color>
+    <color name="colorDeleteButton">#600B0B</color>
 
     <color name="colorButtonPressed">#686B6E</color>
     <color name="colorDisableButton">#919191</color>

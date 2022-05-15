@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@id/adverts_type"
         app:layout_constraintStart_toStartOf="parent"/>
     <TextView
-        android:id="@+id/adverts_posted"
+        android:id="@+id/adverts_timestamp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/app_half_margin"
