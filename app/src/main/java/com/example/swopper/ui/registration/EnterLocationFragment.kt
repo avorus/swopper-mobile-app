@@ -42,10 +42,11 @@ class EnterLocationFragment(var user: UserModel) : Fragment(R.layout.fragment_en
         data[CHILD_STATUS] = "в сети"
         data[CHILD_REGISTRATED] = ServerValue.TIMESTAMP
         data[CHILD_LOCATION] = location
+        data[CHILD_PUBLIC_KEY] = user.publicKey
 
         REF_DATABASE_ROOT.child(NODE_USERS).child(user.id).updateChildren(data)
             .addOnCompleteListener {
-                if(it.isSuccessful) {
+                if (it.isSuccessful) {
                     restartActivity()
                 } else showToast(it.exception?.message.toString())
             }

@@ -9,6 +9,7 @@ lateinit var AUTH: FirebaseAuth
 
 lateinit var CURRENT_UID: String
 lateinit var USER: UserModel
+lateinit var KEY: String
 
 lateinit var REF_DATABASE_ROOT: DatabaseReference
 lateinit var REF_STORAGE_ROOT: StorageReference
@@ -33,21 +34,25 @@ const val CHILD_PHOTO_URL = "photoUrl"
 const val CHILD_STATUS = "status"
 const val CHILD_REGISTRATED = "registrated"
 const val CHILD_LOCATION = "location"
+const val CHILD_PUBLIC_KEY = "publicKey"
 
 // const val CHILD_ID = "id"
 const val CHILD_NAME = "name"
 const val CHILD_DESCRIPTION = "description"
 const val CHILD_TYPE = "type"
 const val CHILD_CATEGORY = "category"
+
 // const val CHILD_PHOTO_URL = "photoUrl"
 // const val CHILD_LOCATION = "location"
 const val CHILD_POSTED = "posted"
 const val CHILD_OWNER = "owner"
+
 // const val CHILD_STATUS = "status"
 const val CHILD_ARCHIVED = "archived"
 
 // const val CHILD_ID = "id"
 const val CHILD_TEXT = "text"
+
 //const val CHILD_TYPE = "type"
 const val CHILD_FROM = "from"
 const val CHILD_SENDED = "sended"

@@ -35,16 +35,18 @@ class EnterCodeFragment(val phone: String, val id: String) :
         AUTH.signInWithCredential(credential).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 REF_DATABASE_ROOT.child(NODE_USERS)
-                    .addListenerForSingleValueEvent(AppValueEventListener{
-                    if (it.hasChild(AUTH.currentUser?.uid.toString())){
-                        restartActivity()
-                    } else{
-                        var user = UserModel(
-                            id = AUTH.currentUser?.uid.toString(),
-                            phone = phone)
-                        replaceFragment(EnterUsernameFragment(user))
-                    }
-                })
+                    .addListenerForSingleValueEvent(AppValueEventListener {
+                        if (it.hasChild(AUTH.currentUser?.uid.toString())) {
+                            restartActivity()
+                        } else {
+                            var user = UserModel(
+                                id = AUTH.currentUser?.uid.toString(),
+                                phone = phone,
+                                publicKey = generateKeys(context)
+                            )
+                            replaceFragment(EnterUsernameFragment(user))
+                        }
+                    })
             } else showToast(APP_ACTIVITY.getString(R.string.enter_wrong_code_toast))
         }
     }

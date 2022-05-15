@@ -1,7 +1,9 @@
 package com.example.swopper.ui.chat.message_recycler_view.views
 
+import com.example.swopper.database.KEY
 import com.example.swopper.database.TYPE_MESSAGE_IMAGE
 import com.example.swopper.models.MessageModel
+import com.example.swopper.utils.decryptMessage
 
 class ViewFactory {
     companion object {
@@ -15,7 +17,7 @@ class ViewFactory {
                 )
                 else -> TextMessageView(
                     id = message.id,
-                    text = message.text,
+                    text = decryptMessage(message.text, KEY),
                     from = message.from,
                     sended = message.sended.toString()
                 )

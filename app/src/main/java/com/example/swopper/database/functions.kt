@@ -3,7 +3,7 @@ package com.example.swopper.database
 import android.net.Uri
 import com.example.swopper.models.*
 import com.example.swopper.utils.AppValueEventListener
-// import com.example.swopper.utils.AppValueEventListener
+import com.example.swopper.utils.encryptMessage
 import com.example.swopper.utils.showToast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -70,16 +70,29 @@ fun sendTextMessage(message: String, recipient: String, function: () -> Unit) {
     val refChatRecipient = "$NODE_MESSAGES/$recipient/$CURRENT_UID"
     val messageKey = REF_DATABASE_ROOT.child(refChatSender).push().key
 
-    val mapMessage = hashMapOf<String, Any>()
-    mapMessage[CHILD_ID] = messageKey.toString()
-    mapMessage[CHILD_TYPE] = TYPE_MESSAGE_TEXT
-    mapMessage[CHILD_TEXT] = message
-    mapMessage[CHILD_FROM] = CURRENT_UID
-    mapMessage[CHILD_SENDED] = ServerValue.TIMESTAMP
+    lateinit var recipientKey: String
+    REF_DATABASE_ROOT.child(NODE_USERS).child(recipient)
+        .addListenerForSingleValueEvent(AppValueEventListener {
+            recipientKey = (it.getValue(UserModel::class.java) ?: UserModel()).publicKey
+        })
+
+    val mapSenderMessage = hashMapOf<String, Any>()
+    mapSenderMessage[CHILD_ID] = messageKey.toString()
+    mapSenderMessage[CHILD_TYPE] = TYPE_MESSAGE_TEXT
+    mapSenderMessage[CHILD_TEXT] = encryptMessage(message, USER.publicKey)
+    mapSenderMessage[CHILD_FROM] = CURRENT_UID
+    mapSenderMessage[CHILD_SENDED] = ServerValue.TIMESTAMP
+
+    val mapRecipientMessage = hashMapOf<String, Any>()
+    mapRecipientMessage[CHILD_ID] = messageKey.toString()
+    mapRecipientMessage[CHILD_TYPE] = TYPE_MESSAGE_TEXT
+    mapRecipientMessage[CHILD_TEXT] = encryptMessage(message, recipientKey)
+    mapRecipientMessage[CHILD_FROM] = CURRENT_UID
+    mapRecipientMessage[CHILD_SENDED] = ServerValue.TIMESTAMP
 
     val mapChat = hashMapOf<String, Any>()
-    mapChat["$refChatSender/$messageKey"] = mapMessage
-    mapChat["$refChatRecipient/$messageKey"] = mapMessage
+    mapChat["$refChatSender/$messageKey"] = mapSenderMessage
+    mapChat["$refChatRecipient/$messageKey"] = mapRecipientMessage
 
     REF_DATABASE_ROOT
         .updateChildren(mapChat)
@@ -126,8 +139,8 @@ fun saveToChatList(userId: String, advertId: String) {
     val keyChatRecipient = getId(CURRENT_UID, advertId)
     val refChatRecipient = "$NODE_CHATS/$userId/$keyChatRecipient"
 
-    val mapChatSender = hashMapOf<String,Any>()
-    val mapChatRecipient = hashMapOf<String,Any>()
+    val mapChatSender = hashMapOf<String, Any>()
+    val mapChatRecipient = hashMapOf<String, Any>()
 
     mapChatSender[CHILD_ID] = keyChatSender
     mapChatSender[CHILD_USER] = userId
@@ -137,7 +150,7 @@ fun saveToChatList(userId: String, advertId: String) {
     mapChatRecipient[CHILD_USER] = CURRENT_UID
     mapChatRecipient[CHILD_ADVERT] = advertId
 
-    val commonMap = hashMapOf<String,Any>()
+    val commonMap = hashMapOf<String, Any>()
     commonMap[refChatSender] = mapChatSender
     commonMap[refChatRecipient] = mapChatRecipient
 

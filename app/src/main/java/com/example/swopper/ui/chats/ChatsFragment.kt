@@ -35,37 +35,44 @@ class ChatsFragment : Fragment(R.layout.fragment_chats) {
         mRecyclerView = chats_recycler_view
         mAdapter = ChatsAdapter()
 
-        REF_DATABASE_ROOT.child(NODE_CHATS).child(CURRENT_UID).addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot ->
-            mChats = dataSnapshot.children.map { it.getValue(CommonModel::class.java)?: CommonModel() }
-            mChats.forEach { chat ->
-                REF_DATABASE_ROOT.child(NODE_USERS).child(chat.user)
-                    .addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot1 ->
-                        val userModel = dataSnapshot1.getValue(UserModel::class.java)?: UserModel()
-                        chat.username = userModel.username
+        REF_DATABASE_ROOT.child(NODE_CHATS).child(CURRENT_UID)
+            .addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot ->
+                mChats = dataSnapshot.children.map {
+                    it.getValue(CommonModel::class.java) ?: CommonModel()
+                }
+                mChats.forEach { chat ->
+                    REF_DATABASE_ROOT.child(NODE_USERS).child(chat.user)
+                        .addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot1 ->
+                            val userModel =
+                                dataSnapshot1.getValue(UserModel::class.java) ?: UserModel()
+                            chat.username = userModel.username
 
-                        REF_DATABASE_ROOT.child(NODE_ADVERTS).child(chat.advert)
-                            .addListenerForSingleValueEvent(AppValueEventListener {dataSnapshot2 ->
-                                val advertModel = dataSnapshot2.getValue(AdvertModel::class.java)?: AdvertModel()
-                                if (advertModel.status == AdvertStatus.ACTIVE.status) {
-                                    chat.name = advertModel.name
-                                    chat.photoUrl = advertModel.photoUrl
+                            REF_DATABASE_ROOT.child(NODE_ADVERTS).child(chat.advert)
+                                .addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot2 ->
+                                    val advertModel =
+                                        dataSnapshot2.getValue(AdvertModel::class.java)
+                                            ?: AdvertModel()
+                                    if (advertModel.status == AdvertStatus.ACTIVE.status) {
+                                        chat.name = advertModel.name
+                                        chat.photoUrl = advertModel.photoUrl
 
-                                    REF_DATABASE_ROOT.child(NODE_MESSAGES).child(CURRENT_UID)
-                                        .child(chat.user).limitToLast(1)
-                                        .addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot3 ->
-                                            val messageModel = dataSnapshot3.children.map {
-                                                it.getValue(MessageModel::class.java)
-                                                    ?: MessageModel()
-                                            }
-                                            chat.text = messageModel[0].text
-                                            chat.sended = messageModel[0].sended
-                                            mAdapter.update(chat)
-                                        })
-                                }
-                            })
-                    })
-            }
-        })
+                                        REF_DATABASE_ROOT.child(NODE_MESSAGES).child(CURRENT_UID)
+                                            .child(chat.user).limitToLast(1)
+                                            .addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot3 ->
+                                                val messageModel = dataSnapshot3.children.map {
+                                                    it.getValue(MessageModel::class.java)
+                                                        ?: MessageModel()
+                                                }
+                                                chat.text =
+                                                    decryptMessage(messageModel[0].text, KEY)
+                                                chat.sended = messageModel[0].sended
+                                                mAdapter.update(chat)
+                                            })
+                                    }
+                                })
+                        })
+                }
+            })
 
         mRecyclerView.adapter = mAdapter
     }
